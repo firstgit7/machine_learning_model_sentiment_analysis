@@ -1,6 +1,6 @@
-Great! Here's a complete and professional `README.md` file based on everything you've shared, including the use of the saved model file `senti.ykl`:
 
----
+
+![Positive ](images/example1.png)
 
 # 🧠 Sentiment Analysis using Scikit-learn
 
