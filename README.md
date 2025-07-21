@@ -1,6 +1,6 @@
 
 
-<img src = "static/pos.png" alt="Prediction Example" width="500" height="500"/>
+<img src = "static/positive_answer.png" alt="Prediction Example" width="500" height="500"/>
 
 
 # 🧠 Sentiment Analysis using Scikit-learn
