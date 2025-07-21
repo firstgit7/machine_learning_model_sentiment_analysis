@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sentiment Analyzer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Optional slow spin effect */
+    @keyframes spin-slow {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .animate-spin-slow {
+      animation:  15s linear infinite;
+    }
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+.animate-wiggle {
+  animation: wiggle 0.5s ease-in-out infinite;
+}
+  </style>
+
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-purple-100 min-h-screen flex items-center justify-center">
+  <div class="bg-white p-8 rounded-xl shadow-2xl w-full max-w-xl">
+    <h1 class="text-3xl font-bold text-center mb-6 text-blue-700">💬 Sentiment Analyzer</h1>
+     {% if prediction %}
+    <div class="mt-8 text-center">
+      <h2 class="text-2xl font-semibold mb-4 text-gray-800">Sentiment: 
+        <span class="text-blue-600">{{ prediction }}</span>
+      </h2>
+
+      <div class="inline-block relative rounded-full shadow-2xl ring-4 ring-blue-400 animate-spin-slow transition-transform hover:scale-105">
+        <img src="data:image/png;base64,{{ image_data }}"
+             alt="{{ prediction }}"
+             class="w-48 h-48 rounded-full object-top border-4 border-white">
+      </div>
+    </div>
+    {% endif %}
+
+    <form id="sentiment-form" method="post" action="/predict" class="flex flex-col gap-4">
+      <textarea id="text-input" name="text" rows="4" required placeholder="Enter your text here..."
+                class="p-4 rounded border border-gray-300 focus:ring-2 focus:ring-blue-400">{{ text if text else '' }}</textarea>
+      <button type="submit"
+              class="bg-blue-600 text-white font-semibold py-2 rounded hover:bg-blue-700 transition">
+        Analyze Sentiment
+      </button>
+    </form>
+
+   
+  </div>
+  <script>
+   const textarea = document.getElementById("text-input");
+  const form = document.getElementById("sentiment-form");
+
+  textarea.addEventListener("keydown", function(e) {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault(); // Prevent newline
+      form.submit();      // Submit form
+    }
+  });</script>
+</body>
+</html>
