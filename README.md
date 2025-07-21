@@ -1,6 +1,6 @@
 
 
-![Positive ](images/example1.png)
+![Positive ](static/pos.png)
 
 # 🧠 Sentiment Analysis using Scikit-learn
 
