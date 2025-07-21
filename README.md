@@ -16,14 +16,11 @@ The trained model is saved in the file `senti.ykl` and can be reused for predict
 ```
 machine_learning_model_sentiment_analysis/
 │
-├── data/                # Raw or cleaned dataset
-├── models/
-│   └── senti.ykl        # Saved trained model
-├── notebooks/           # Jupyter notebooks for exploration and training
-├── src/
-│   ├── preprocess.py    # Text cleaning and tokenization
-│   ├── train.py         # Training pipeline
-│   ├── predict.py       # Load model and predict sentiment
+├--- model_creations.py # python file to create train model and save it using joblib
+│--- senti.ykl        # Saved trained model
+├── main.py          # Main file for server with fastapi 
+├── templates/
+│   ├── index.html   # The frontend page for UI
 ├── requirements.txt     # Project dependencies
 └── README.md            # Project documentation
 ```
